@@ -1,26 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-const url = 'https://api.github.com/users';
+const url = "https://api.github.com/users";
 
-// second argument
+//if useEffect has functionality that make rerender,
+//use second argument => [], that stops from rerendering
 
 const UseEffectFetchData = () => {
+  //initiate state:
   const [users, setUsers] = useState([]);
 
+  //fetch & set state
   const getUsers = async () => {
     const response = await fetch(url);
     const users = await response.json();
     setUsers(users);
-    // console.log(users);
   };
 
+  //get users only once
   useEffect(() => {
     getUsers();
   }, []);
+
   return (
     <>
       <h3>github users</h3>
-      <ul className='users'>
+      <ul className="users">
         {users.map((user) => {
           const { id, login, avatar_url, html_url } = user;
           return (
