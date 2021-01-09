@@ -1,5 +1,5 @@
 import React from "react";
-import Final from "./tutorial/2-useEffect/final/5-useEffect-counter";
+import Final from "./tutorial/3-conditional-rendering/corresponding-projects/1-Tours/Main";
 // import Project from "./tutorial/1-useState/corresponding-projects/1-bd-reminder/Main";
 function App() {
   return (
