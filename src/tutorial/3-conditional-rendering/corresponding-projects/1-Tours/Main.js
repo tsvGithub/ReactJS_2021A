@@ -5,14 +5,14 @@ import Loading from "./Loading";
 import "./styles.css";
 
 const url = "https://course-api.com/react-tours-project";
+
+// I.Component
 function Main() {
+  //1 state
   const [loading, setLoading] = useState(true);
   const [tours, setTours] = useState([]);
 
-  useEffect(() => {
-    fetchTours();
-  }, []);
-
+  //3
   const fetchTours = async () => {
     setLoading(true);
     try {
@@ -26,11 +26,19 @@ function Main() {
     }
   };
 
+  //4
+  useEffect(() => {
+    fetchTours();
+  }, []);
+
+  //5
   const removeTour = (id) => {
     const newTours = tours.filter((tour) => tour.id !== id);
     setTours(newTours);
   };
-  //when loading:
+
+  //2------------------------
+  //2a when loading:
   if (loading) {
     return (
       <main>
@@ -39,20 +47,21 @@ function Main() {
       </main>
     );
   }
-  //if no tours:
+  //2c if no tours:
   if (tours.length === 0) {
     return (
       <main>
         <div className="title">
           <h2>no tours left</h2>
-          <button className="btn" onClick={() => fetchTours()}>
+          <button className="btn" onClick={fetchTours}>
+            {/* <button className="btn" onClick={() => fetchTours()}> */}
             refresh
           </button>
         </div>
       </main>
     );
   }
-  //if OK
+  //2b if OK
   return (
     <main>
       {/* <h1>Tours</h1> */}

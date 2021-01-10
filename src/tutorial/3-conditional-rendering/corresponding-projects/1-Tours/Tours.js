@@ -1,6 +1,7 @@
 import React from "react";
 import Tour from "./Tour";
 
+// II.Component
 function Tours({ tours, removeTour }) {
   return (
     <section>
