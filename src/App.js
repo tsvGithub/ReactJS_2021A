@@ -1,5 +1,5 @@
 import React from "react";
-import Final from "./tutorial/3-conditional-rendering/corresponding-projects/4-Menu/Main";
+import Final from "./tutorial/3-conditional-rendering/corresponding-projects/5-Tabs/Main";
 // import Project from "./tutorial/1-useState/corresponding-projects/1-bd-reminder/Main";
 function App() {
   return (
