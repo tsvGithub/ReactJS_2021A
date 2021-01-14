@@ -1,5 +1,5 @@
 import React from "react";
-import Final from "./tutorial/3-conditional-rendering/corresponding-projects/6-Slider/Main";
+import Final from "./tutorial/4-forms/final/2d-multiple-inputs-Component";
 // import Project from "./tutorial/1-useState/corresponding-projects/1-bd-reminder/Main";
 function App() {
   return (
