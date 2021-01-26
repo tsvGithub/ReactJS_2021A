@@ -15,8 +15,9 @@ const UseRefBasics = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(refContainer.current.value);
-    //logged: input value
+    //logges: input value
   };
+
   // console.log(refContainer);
   //--------------------
   //2.4
@@ -27,6 +28,7 @@ const UseRefBasics = () => {
     //logged: <input type="text">
     refContainer.current.focus();
   });
+  //========================
   //2
   return (
     <>
