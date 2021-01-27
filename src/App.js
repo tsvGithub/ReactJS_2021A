@@ -1,5 +1,7 @@
 import React from "react";
-import Final from "./tutorial/5-useRef/final/2-useRef-ToDo";
+import Final from "./tutorial/6-useReducer/without-useReducer";
+//for whole folder with index.js:
+// import Final from "./tutorial/6-useReducer/final";
 // import Project from "./tutorial/5-useRef/corresponding-projects/1-navbar/Main";
 function App() {
   return (
