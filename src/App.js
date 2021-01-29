@@ -1,5 +1,5 @@
 import React from "react";
-import Final from "./tutorial/7-prop-drilling/final/1-prop-drilling";
+import Final from "./tutorial/7-Context/ReactContext_02_changeUserName/Main";
 //for whole folder with index.js:
 // import Final from "./tutorial/6-useReducer/final";
 // import Project from "./tutorial/5-useRef/corresponding-projects/1-navbar/Main";
