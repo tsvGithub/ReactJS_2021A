@@ -10,7 +10,6 @@ function ThemeContextProvider(props) {
     // setTheme(prevTheme => {
     //     return prevTheme === "light" ? "dark" : "light"
     // })
-    //
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 

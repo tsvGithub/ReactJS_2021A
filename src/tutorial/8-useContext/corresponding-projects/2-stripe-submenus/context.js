@@ -1,63 +1,76 @@
 import React, { useState, useContext } from "react";
-//----------------------
+import sublinks from "./data";
+
 //1 Global context
 //1.1.create a Context object by using React.CreateContext
 const AppContext = React.createContext();
-//get back Provider & Consumer
-//Consumer isn't used, only Provider!!!
 // This AppContext object is what should be passed
 //as an argument into the useContext Hook.
 //1.2. see below =>
 // export const useGlobalContext = () => {
 //   return useContext(AppContext);
 // };
-//---------------------------
 
-// V
-//create Provider: pass in childern
+//=========================
+//2
+//create Provider
+//{children} for whole App
 const AppProvider = ({ children }) => {
-  //state
+  // 2.2. state
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  //toggle side bar: two funcs because they work in different components
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  //
+  const [page, setPage] = useState({ page: "", links: [] });
+  //
+  const [location, setLocation] = useState({});
+  //-----------------
+  //2.3.
   const openSidebar = () => {
     setIsSidebarOpen(true);
   };
   const closeSidebar = () => {
     setIsSidebarOpen(false);
   };
-  //-----------------------------
-  //toggle modal: : two funcs because they work in different components
-  const openModal = () => {
-    setIsModalOpen(true);
+  //=============================
+  //2.4.
+  const openSubmenu = (text, coordinates) => {
+    //
+    const page = sublinks.find((link) => link.page === text);
+    //
+    setPage(page);
+    //
+    setLocation(coordinates);
+    //
+    setIsSubmenuOpen(true);
   };
-  const closeModal = () => {
-    setIsModalOpen(false);
+  //-------------
+  const closeSubmenu = () => {
+    setIsSubmenuOpen(false);
   };
+  //2.1.
+  //return AppContext.Provider & children
+  //Any updates on the Provider will trigger a
+  //rerender with the updated context value.
 
   return (
-    //Provider
-    //Any updates on the Provider will trigger a
-    //rerender with the updated context value.
-
     <AppContext.Provider
-      //pass value to children
+      //2.5. pass value to children
       value={{
         isSidebarOpen,
-        isModalOpen,
-        openModal,
-        closeModal,
         openSidebar,
         closeSidebar,
+        isSubmenuOpen,
+        openSubmenu,
+        closeSubmenu,
+        page,
+        location,
       }}
     >
-      {/*Components */}
+      {/* Components*/}
       {children}
     </AppContext.Provider>
   );
 };
-//------------------------
 
 //1.2. custom Hook:
 //useGlobalContext provides both a consumer and

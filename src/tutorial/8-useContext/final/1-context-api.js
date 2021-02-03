@@ -1,13 +1,16 @@
 import React, { useState, useContext } from "react";
 import { data } from "../../../data";
-// more components
-// fix - context api, redux (for more complex cases)
 
 //1 create context
+//1.1.create a Context object by using React.CreateContext
 const PersonContext = React.createContext();
 //useContext access to value from PersonContext.Provider
+// This PersonContext object is what should be passed
+//as an argument into the useContext Hook.
+//1.2. see below => const mainData = useContext(PersonContext);
 
-// two components - Provider, Consumer (don't have to use Consumer)
+// PersonContext has two components - Provider, Consumer (don't have to use Consumer)
+
 //2 Provider: root component
 const ContextAPI = () => {
   //2.1
@@ -36,17 +39,24 @@ const List = () => {
   //access to value from PersonContext.Provider
   //value={{ removePerson, people }}
   const mainData = useContext(PersonContext);
+  //1.2. custom Hook:
+  //useGlobalContext provides both a consumer and
+  //a provider. When using the useContext Hook,
+  //you have to pass in the whole context object,
+  //not just the consumer or provider.
+  //PersonContext Object from createContext()
+  // is what should be passed as
+  //an argument into the useContext Hook.
+  //With useContext we consume our context object.
+  //Any updates on the Provider will trigger a rerender with the updated context value.
+
   // console.log(mainData);
   return (
     <>
       {mainData.people.map((person) => {
         return (
           //3.2
-          <SinglePerson
-            key={person.id}
-            //
-            {...person}
-          />
+          <SinglePerson key={person.id} {...person} />
         );
       })}
     </>
