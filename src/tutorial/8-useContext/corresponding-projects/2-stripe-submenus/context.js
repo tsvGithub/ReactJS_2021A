@@ -17,14 +17,16 @@ const AppContext = React.createContext();
 //{children} for whole App
 const AppProvider = ({ children }) => {
   // 2.2. state
+  //Sidebar state
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  //Submenu state
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
-  //
+  //page==text for Submenu btns (page&links values are in context.js)
   const [page, setPage] = useState({ page: "", links: [] });
-  //
+  //{center, bottom} coordinates of Sublink btn
   const [location, setLocation] = useState({});
   //-----------------
-  //2.3.
+  //2.3. open & close Sidebar
   const openSidebar = () => {
     setIsSidebarOpen(true);
   };
@@ -32,36 +34,47 @@ const AppProvider = ({ children }) => {
     setIsSidebarOpen(false);
   };
   //=============================
-  //2.4.
+  //2.4. open & close Submenu
+  //text to know which btn (products/developers or company)
+  //coordinates==={center, bottom} for location
   const openSubmenu = (text, coordinates) => {
-    //
-    const page = sublinks.find((link) => link.page === text);
-    //
+    //get text value for page (submenu btn)
+    const page = sublinks.find((link) => {
+      //get link.page (data.js) that matches the page which coming from the button (text)
+      link.page === text;
+    });
+    //update state
     setPage(page);
-    //
+    //set location state with coordinates
+    //{center, bottom} of hovered Submenu btn
     setLocation(coordinates);
-    //
+    //update state
     setIsSubmenuOpen(true);
   };
   //-------------
+  //when mouse (mouseOver) left Navbar=>
+  //close Submenu
   const closeSubmenu = () => {
     setIsSubmenuOpen(false);
   };
+  //=======================================
   //2.1.
   //return AppContext.Provider & children
   //Any updates on the Provider will trigger a
   //rerender with the updated context value.
-
   return (
     <AppContext.Provider
       //2.5. pass value to children
       value={{
+        //Sidebar state
         isSidebarOpen,
         openSidebar,
         closeSidebar,
+        //Submenu state
         isSubmenuOpen,
         openSubmenu,
         closeSubmenu,
+        //
         page,
         location,
       }}

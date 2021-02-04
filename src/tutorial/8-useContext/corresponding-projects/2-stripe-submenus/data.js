@@ -13,17 +13,17 @@ const sublinks = [
   {
     page: "developers",
     links: [
-      { label: "plugins", icon: <FaBook />, url: "/products" },
-      { label: "libraries", icon: <FaBook />, url: "/products" },
-      { label: "help", icon: <FaBook />, url: "/products" },
-      { label: "billing", icon: <FaBook />, url: "/products" },
+      { label: "plugins", icon: <FaBook />, url: "/developers" },
+      { label: "libraries", icon: <FaBook />, url: "/developers" },
+      { label: "help", icon: <FaBook />, url: "/developers" },
+      { label: "billing", icon: <FaBook />, url: "/developers" },
     ],
   },
   {
     page: "company",
     links: [
-      { label: "about", icon: <FaBriefcase />, url: "/products" },
-      { label: "customers", icon: <FaBriefcase />, url: "/products" },
+      { label: "about", icon: <FaBriefcase />, url: "/company" },
+      { label: "customers", icon: <FaBriefcase />, url: "/company" },
     ],
   },
 ];

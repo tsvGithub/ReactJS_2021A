@@ -2,16 +2,16 @@ import React from "react";
 // import Final from "./tutorial/8-useContext/final/1-context-api";
 //for whole folder with index.js:
 // import Final from "./tutorial/6-useReducer/final";
-import Redux from "./tutorial/Redux/connect/Main";
-// import Project from "./tutorial/8-useContext/corresponding-projects/2-stripe-submenus/Main";
+// import Redux from "./tutorial/Redux/connect/Main";
+import Project from "./tutorial/8-useContext/corresponding-projects/2-stripe-submenus/Main";
 
 function App() {
   return (
     <div className="container">
       <h2>Advanced Tutorial</h2>
       {/* <Final /> */}
-      <Redux />
-      {/* <Project /> */}
+      {/* <Redux /> */}
+      <Project />
     </div>
   );
 }

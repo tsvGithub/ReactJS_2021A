@@ -6,11 +6,12 @@ import { useGlobalContext } from "./context";
 //
 const Hero = () => {
   //access to context (grab func from context)
+  //to close Submenu
   const { closeSubmenu } = useGlobalContext();
   return (
     <section
       className="hero"
-      //
+      //if mouse came from Navbar to Heroe => close Submenu
       onMouseOver={closeSubmenu}
     >
       <div className="hero-center">
