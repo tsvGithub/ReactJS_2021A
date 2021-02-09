@@ -3,7 +3,7 @@ import React from "react";
 //for whole folder with index.js:
 // import Final from "./tutorial/6-useReducer/final";
 // import Redux from "./tutorial/Redux/connect/Main";
-import Project from "./tutorial/8-useContext/corresponding-projects/2-stripe-submenus/Main";
+import Project from "./tutorial/8-useContext/corresponding-projects/3-cart/Main";
 
 function App() {
   return (
