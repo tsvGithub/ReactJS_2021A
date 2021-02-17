@@ -1,7 +1,6 @@
 import React from "react";
 //Context---------------
 import { AppProvider } from "./context";
-import { useGlobalContext } from "./context";
 //Components----------------
 import Navbar from "./Navbar";
 import CartContainer from "./CartContainer";
@@ -9,15 +8,8 @@ import CartContainer from "./CartContainer";
 import "./styles.css";
 
 function Main() {
-  // const { loading } = useGlobalContext();
-  // if (loading) {
-  //   return (
-  //     <div className="loading">
-  //       <h1>Loading...</h1>
-  //     </div>
-  //   );
-  // }
   return (
+    //wrap whole App in Provider
     <AppProvider>
       <main>
         <Navbar />

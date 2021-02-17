@@ -3,6 +3,7 @@ import React from "react";
 import { useGlobalContext } from "./context";
 
 const Navbar = () => {
+  //pull out amount of items from cart state from context.js
   const { amount } = useGlobalContext();
   return (
     <nav>
@@ -14,7 +15,10 @@ const Navbar = () => {
           </svg>
 
           <div className="amount-container">
-            <p className="total-amount">{amount}</p>
+            <p className="total-amount">
+              {/*items' amount */}
+              {amount}
+            </p>
           </div>
         </div>
       </div>
