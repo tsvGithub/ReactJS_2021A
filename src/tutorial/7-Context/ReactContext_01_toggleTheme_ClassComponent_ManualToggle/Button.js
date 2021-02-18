@@ -5,6 +5,7 @@ import ThemeContext from "./themeContext";
 
 class Button extends Component {
   static contextType = ThemeContext;
+
   render() {
     //this.context is value provided through
     //<ThemeContext.Provided value={...} > in Main.js
