@@ -1,5 +1,5 @@
 import React from "react";
-import Final from "./tutorial/9-custom-hooks/final/4-ToggleTheme/Main";
+import Final from "./tutorial/10-prop-types/final/index";
 //for whole folder with index.js:
 // import Final from "./tutorial/6-useReducer/final";
 // import Redux from "./tutorial/Redux/connect/Main";
