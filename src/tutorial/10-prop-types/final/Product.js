@@ -33,6 +33,13 @@ const Product = ({ image, name, price }) => {
 
 //2.1.
 //name of component + property of component(propTypes)
+//PROP TYPES
+//propTypes allows you to specify incoming props
+//should be of the specific data type and require
+//Types checking for incoming props
+//*****
+//NB!!!if isRequired but isn't set => but it's in defaultProps => OK
+
 Product.propTypes = {
   //PropTypes=imported from react prop-types
   //img=object; isRequired=true => in console will be warning
@@ -42,7 +49,9 @@ Product.propTypes = {
   price: PropTypes.number.isRequired,
 };
 
-//3.1. defaultProps I
+//3.1. defaultProps
+//defaultProps is a fallback if any props are missing
+
 Product.defaultProps = {
   //if name/price or img is missing in the API =>
   //use for default:
