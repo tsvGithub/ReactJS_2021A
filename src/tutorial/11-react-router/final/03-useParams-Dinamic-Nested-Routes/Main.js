@@ -14,6 +14,8 @@ import ServiceDetail from "./pages/services/ServiceDetail";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 
+import "./styles.css";
+
 function App() {
   return (
     <Router>

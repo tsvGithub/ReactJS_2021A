@@ -1,5 +1,5 @@
 import React from "react";
-import Final from "./tutorial/11-react-router/final/04-useRouteMatch/Main";
+import Final from "./tutorial/11-react-router/final/05-useHistory/Main";
 //for whole folder with index.js:
 // import Final from "./tutorial/6-useReducer/final";
 // import Redux from "./tutorial/Redux/connect/Main";
