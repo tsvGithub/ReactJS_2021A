@@ -1,17 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+// "a" === Link
+import { Link } from "react-router-dom";
+
+// II set links
 const Navbar = () => {
   return (
     <nav>
       <ul>
         <li>
-          <Link to='/'>Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to='/about'>About</Link>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to='/people'>People</Link>
+          <Link to="/people">People</Link>
         </li>
       </ul>
     </nav>

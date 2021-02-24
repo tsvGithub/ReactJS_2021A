@@ -1,10 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+// III
 const Error = () => {
   return (
     <div>
       <h1>Error Page</h1>
-      <Link to='/' className='btn'>
+      {/*link to 'home' */}
+      <Link to="/" className="btn">
         Back Home
       </Link>
     </div>
