@@ -7,10 +7,10 @@ const url = "https://course-api.com/javascript-store-products";
 //------------------------
 
 //!!!NB!!!
-// every time props or state changes,
-//component re-renders
+// every time props or state changes, component re-renders
+//--------------------------
 
-//find out what is the most expensive item:
+//find out what is the most expensive item of array:
 const calculateMostExpensive = (data) => {
   return (
     //check highest value of the price:
@@ -100,6 +100,11 @@ const Index = () => {
 
 // II  BIGLIST COMPONENT
 //===================REACT.MEMO===============
+//React.memo() is a version of `React.PureComponent (Class Component)
+//which can be used with functional components.
+//React.memo() is a HOC which only compares prevProps and nextProps (it doesn't check state).
+//React.memo() returns true if the component should re-render.
+
 //React.memo for state value (props):
 //REACT.MEMO memorizes state value: if PROPS value is
 //not changed, then doesn't trigger re-render!
