@@ -12,7 +12,7 @@ import { AppProvider } from "./context";
 //styles
 import "./styles.css";
 
-// I
+// I => II. Navbar.js
 function Main() {
   return (
     <AppProvider>

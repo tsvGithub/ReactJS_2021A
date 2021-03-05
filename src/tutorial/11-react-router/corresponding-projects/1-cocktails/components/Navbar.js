@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../logo.svg";
+import logo from "../logo.jpg";
 
-// II
-export default function Navbar() {
+// II /see III About.js
+const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-center">
         <Link to="/">
-          <img src={logo} alt="cocktail db logo" className="logo" />
+          <img src={logo} alt="cocktail logo" className="logo" />
         </Link>
         <ul className="nav-links">
           <li>
@@ -21,4 +21,6 @@ export default function Navbar() {
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
