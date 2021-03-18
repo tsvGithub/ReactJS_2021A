@@ -3,8 +3,8 @@ import React from "react";
 //for whole folder with index.js:
 // import Final from "./tutorial/6-useReducer/final";
 // import Redux from "./tutorial/Redux/connect/Main";
-import Project from "./tutorial/4-forms/corresponding-projects/4-Markdown-preview/Main";
-// import Project from "./tutorial/13-Colorpicker-Hooks/Main";
+// import Project from "./tutorial/4-forms/corresponding-projects/4-Markdown-preview/Main";
+import Project from "./tutorial/2a-fetch/Main";
 
 function App() {
   return (
