@@ -1,18 +1,19 @@
 import React from "react";
 
-//II =>  III urils.js
+//II =>  III utils.js
 //1. destructuring props from fetched data
 //avartar_url=> img
 //html_url => github
 //login=> nickname/username
 const Follower = ({ avatar_url, html_url, login }) => {
+  //2
   return (
     <article className="card">
-      {/*props avatar_url & login */}
+      {/*image with props avatar_url & login */}
       <img src={avatar_url} alt={login} />
-      {/*props  login */}
+      {/* name with props login */}
       <h4>${login}</h4>
-      {/*props githyb */}
+      {/*link with props github */}
       <a href={html_url} className="btn">
         view profile
       </a>

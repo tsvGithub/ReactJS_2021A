@@ -5,7 +5,7 @@ import { useFetch } from "./2-useFetch";
 //api for fetching data
 const url = "https://course-api.com/javascript-store-products";
 
-//use custom hooke in any Component
+//use custom hook in any Component
 const Example = () => {
   //============================
   //1 BEFORE CUSTOM HOOKS
