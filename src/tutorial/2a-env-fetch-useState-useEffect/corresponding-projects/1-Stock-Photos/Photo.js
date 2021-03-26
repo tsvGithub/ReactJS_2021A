@@ -1,6 +1,9 @@
 import React from "react";
 
+//II
+//destructuring 'image' from API calls
 const Photo = ({
+  //all from 'image' property
   urls: { regular },
   alt_description,
   likes,
@@ -12,18 +15,14 @@ const Photo = ({
 }) => {
   return (
     <article className="photo">
-      <img
-        //props
-        src={regular}
-        alt={alt_description}
-      />
+      <img src={regular} alt={alt_description} />
       <div className="photo-info">
         <div>
           <h4>{name}</h4>
           <p>{likes}</p>
         </div>
         <a href={portfolio_url}>
-          <img src={medium} alt="" className="user-img" />
+          <img src={medium} alt={name} className="user-img" />
         </a>
       </div>
     </article>
