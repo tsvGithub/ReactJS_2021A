@@ -3,16 +3,14 @@ import { useParams, Link } from "react-router-dom";
 import { API_ENDPOINT } from "./context";
 import useFetch from "./useFetch";
 
-//
+// VIII
 const SingleMovie = () => {
-  //
   const { id } = useParams();
-  const { isLoading, error, data: movie } = useFetch(`&=${id}`);
+  const { isLoading, error, data: movie } = useFetch(`&i=${id}`);
 
   if (isLoading) {
     return <div className="loading"></div>;
   }
-
   if (error.show) {
     return (
       <div className="page-error">
@@ -23,7 +21,7 @@ const SingleMovie = () => {
       </div>
     );
   }
-  const { Poster: posterr, Title: title, Plot: plot, Year: year } = movie;
+  const { Poster: poster, Title: title, Plot: plot, Year: year } = movie;
   return (
     <section className="single-movie">
       <img src={poster} alt={title} />

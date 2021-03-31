@@ -129,6 +129,7 @@ const AppProvider = ({ children }) => {
       }}
     >
       {/* Components*/}
+      {/*get children as props & pass childern down */}
       {children}
     </AppContext.Provider>
   );
