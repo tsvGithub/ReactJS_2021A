@@ -5,12 +5,20 @@ import useFetch from "./useFetch";
 
 // VIII
 const SingleMovie = () => {
+  //react router provides useParams hook to
+  //get value that is passed in. Once click on
+  //the movie => we pass in the 'id' in 'url'
+  //grab the 'id' from the useParams
   const { id } = useParams();
+  console.log(id); //tt1014759
+  //set state:
   const { isLoading, error, data: movie } = useFetch(`&i=${id}`);
 
+  //-------------------
   if (isLoading) {
     return <div className="loading"></div>;
   }
+  //----------------
   if (error.show) {
     return (
       <div className="page-error">
@@ -21,7 +29,9 @@ const SingleMovie = () => {
       </div>
     );
   }
+  //
   const { Poster: poster, Title: title, Plot: plot, Year: year } = movie;
+  //-----------------------
   return (
     <section className="single-movie">
       <img src={poster} alt={title} />
