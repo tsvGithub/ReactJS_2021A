@@ -4,7 +4,7 @@ import Stories from "./Stories";
 import Buttons from "./Buttons";
 
 import "./styles.css";
-//
+//context
 import { AppProvider } from "./context";
 
 const Main = () => {

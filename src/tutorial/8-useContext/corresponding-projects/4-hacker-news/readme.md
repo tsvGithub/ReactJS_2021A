@@ -1,3 +1,3 @@
-fetch search serversiade pagination useReducer useContext
+fetch- search-[serverside_pagination]-(useReducer+useContext)
 
-https://hn.algolia.com/api
+"Hacker news" API https://hn.algolia.com/api
