@@ -1,3 +1,3 @@
-fetch- search-[serverside_pagination]-(useReducer+useContext)
+fetch- search- serverside_pagination]-(useReducer+useContext)
 
 "Hacker news" API https://hn.algolia.com/api
