@@ -5,7 +5,7 @@ import Modal from "./Modal";
 import { useGlobalContext } from "./context";
 
 const Home = () => {
-  //1)
+  //1) state from context
   const { waiting, loading, questions, index, correct, nextQuestion, checkAnswer } = useGlobalContext();
 
   //2) multiple returns:
@@ -56,7 +56,7 @@ const Home = () => {
                 <button
                   key={index}
                   className="answer-btn"
-                  //
+                  //check if answer is correct:
                   onClick={() => checkAnswer(correct_answer === answer)}
                   // 'answer' from API is not a string,
                   //but HTML. When use 'dangerouslySetInnerHTML'
@@ -70,7 +70,7 @@ const Home = () => {
         </article>
         <button
           className="next-question"
-          //
+          //next question:
           onClick={nextQuestion}
         >
           next question

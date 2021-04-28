@@ -2,19 +2,20 @@ import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 
 const table = {
-  sports: 21,
+  geography: 22,
   history: 23,
-  politics: 24,
+  animals: 27,
+  art: 25,
 };
 
 const API_ENDPOINT = "https://opentdb.com/api.php?";
 
 const url = "";
 
-const tempUrl = "https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple";
+// const tempUrl = "https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple";
+const tempUrl = "https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple";
 //-----------------
-// API example:
-//"results": [
+// API example: "results": [
 //     {
 //       "category": "Sports",
 //       "type": "multiple",
@@ -70,12 +71,13 @@ const AppProvider = ({ children }) => {
   const [correct, setCorrect] = useState(0);
   //Error message: when API cannot generate questions
   const [error, setError] = useState(false);
-  //
-  // const [quiz, setQuiz] = useState({
-  //   amount: 10,
-  //   category: "sports",
-  //   difficulty: "easy",
-  // });
+  //controled input for setupForm:
+  const [quiz, setQuiz] = useState({
+    amount: 10,
+    category: "geography",
+    difficulty: "easy",
+  }); //this is the same as 'tempUrl'
+  //const tempUrl = "https://opentdb.com/api.php?amount=10&category=22&difficulty=easy";
 
   //modal window shows percentage of correct questions
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -107,10 +109,70 @@ const AppProvider = ({ children }) => {
       setWaiting(true);
     }
   };
-  //3)
-  useEffect(() => {
-    fetchQuestions(tempUrl);
-  }, []);
+  //---------------------
+  //4) next question:
+  const nextQuestion = () => {
+    setIndex((currentIndex) => {
+      const index = currentIndex + 1;
+      //open up the Modal
+      if (index > questions.length - 1) {
+        // see below (6)
+        openModal();
+        //return 0===first
+        return 0;
+      } else {
+        return index;
+      }
+    });
+  };
+  //----------------------
+  //5) check if answer is correct:
+  const checkAnswer = (value) => {
+    //if value is true
+    if (value) {
+      //increase amount of correct answers
+      setCorrect((currentState) => currentState + 1);
+    }
+    //if value is false=> go to the next question
+    nextQuestion();
+  };
+
+  //-----------------
+  // 6) Open & Close Modal when finish quiz (4):
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  //--------------------
+  //7)
+  const closeModal = () => {
+    //when close Modal, display Setup Form for next quiz
+    setWaiting(true);
+    //set correct answers back to 0
+    setCorrect(0);
+    //close modal
+    setIsModalOpen(false);
+  };
+  //--------------------
+  // //3)
+  // useEffect(() => {
+  //   fetchQuestions(tempUrl);
+  // }, []);
+  //--------------------------------
+  //8) instead of using useEffect, use functions:
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setQuiz({ ...quiz, [name]: value });
+  };
+  //--------------------
+  //9)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { amount, category, difficulty } = quiz;
+
+    const url = `${API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${table[category]}&type=multiple`;
+    fetchQuestions(url);
+  };
 
   return (
     //Provider
@@ -118,7 +180,26 @@ const AppProvider = ({ children }) => {
     //rerender with the updated context value.
     <AppContext.Provider
       //pass value to children
-      value={{ waiting, loading, questions, index, correct, error, isModalOpen }}
+      value={{
+        waiting,
+        loading,
+        questions,
+        index,
+        correct,
+        error,
+        isModalOpen,
+        //4)
+        nextQuestion,
+        //5)
+        checkAnswer,
+        //6) only 'closeModal' as 'openModal' is used only here in context
+        closeModal,
+        //8
+        quiz,
+        handleChange,
+        //9
+        handleSubmit,
+      }}
     >
       {/*Components */}
       {children}
