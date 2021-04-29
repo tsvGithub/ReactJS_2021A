@@ -10,10 +10,8 @@ const table = {
 
 const API_ENDPOINT = "https://opentdb.com/api.php?";
 
-const url = "";
-
-// const tempUrl = "https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple";
-const tempUrl = "https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple";
+// const url = "";
+// const tempUrl = "https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple";
 //-----------------
 // API example: "results": [
 //     {
@@ -158,19 +156,28 @@ const AppProvider = ({ children }) => {
   //   fetchQuestions(tempUrl);
   // }, []);
   //--------------------------------
-  //8) instead of using useEffect, use functions:
+  //8) instead of using useEffect, use these functions:
   const handleChange = (e) => {
+    //input values:
     const name = e.target.name;
     const value = e.target.value;
+    //set state:
     setQuiz({ ...quiz, [name]: value });
   };
   //--------------------
-  //9)
+  //9) submit the form:
   const handleSubmit = (e) => {
     e.preventDefault();
+    //destructuring properties from the 'quiz'
+    //because user has changed them:
     const { amount, category, difficulty } = quiz;
 
-    const url = `${API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${table[category]}&type=multiple`;
+    //change 'url' dinamically depending on users quiz parameters:
+    //'table' is for 'category' as API has numbers instead of names of categories
+    const url = `
+    ${API_ENDPOINT}amount=
+    ${amount}&difficulty=${difficulty}&category=${table[category]}&type=multiple`;
+    //(2) use fetch function instead of useEffect
     fetchQuestions(url);
   };
 

@@ -21,16 +21,35 @@ const Home = () => {
   //destructuring properties from 'questions[X]'
   //where 'x' is 'index' and by default is 0
   const { question, incorrect_answers, correct_answer } = questions[index];
+  //--------------------
+  //answers: 3 incorrect answers + 1 (last) correct answer:
   // const answers = [...incorrect_answers, correct_answer]
+  //generate dinamically correct answers order in the array 'answers':
+  //array of incorrect answers [0,1,2]
   let answers = [...incorrect_answers];
-
+  //----------------------
+  //Generate placement order of correct answers dinamically:
+  //generate random number 0,1,2 or 3
   const tempIndex = Math.floor(Math.random() * 4);
+  //if random number===3, that means
+  //in 'answers' array won't be that number,
+  //there are only 0,1,2, so add correct
+  //answer to the end of array of incorrect answers
   if (tempIndex === 3) {
+    //add correct answer at the end of array
     answers.push(correct_answer);
   } else {
+    //if the number is 0,1 or 2:
+    //for example, place incorrect answer with
+    //random index 2 at the end of array
     answers.push(answers[tempIndex]);
+    //and this spot (number2) replace with correct answer
+    //===correct_answer is at index 2
     answers[tempIndex] = correct_answer;
   }
+
+  //================================
+  //================================
   //4)
   return (
     <main>
