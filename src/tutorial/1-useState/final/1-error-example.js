@@ -9,8 +9,14 @@ const ErrorExample = () => {
   };
   return (
     <React.Fragment>
+      {/*the title displayed 'Random title' */}
       <h2>{title}</h2>
-      <button type="button" className="btn" onClick={handleClick}>
+      <button
+        type="button"
+        className="btn"
+        //console logged "Hello people"
+        onClick={handleClick}
+      >
         change title
       </button>
     </React.Fragment>
