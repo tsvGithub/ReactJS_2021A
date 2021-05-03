@@ -9,8 +9,9 @@ import "./styles.css";
 const Main = () => {
   return (
     <AppProvider>
-      <Dashboard />
+      <Dashboard id={1} />
       <Controllers />
+      <Dashboard id={2} />
     </AppProvider>
   );
 };
