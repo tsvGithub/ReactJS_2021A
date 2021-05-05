@@ -8,7 +8,7 @@ const AppProvider = ({ children }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [dice, setDice] = useState(0);
   const [winner, setWinner] = useState(null);
-  let [activePlayer, setActivePlayer] = useState(0);
+  let [activePlayer, setActivePlayer] = useState(1);
   let [currentScore, setCurrentScore] = useState(0);
   let [totalScore, setTotalScore] = useState([0, 0]);
   //----------------
@@ -25,24 +25,27 @@ const AppProvider = ({ children }) => {
   // };
 
   //1 Roll Dice
-  // const rollDice = () => {
-  //   // setIsPlaying(true);
-  //   //------------------------
-  //   // setDice(Math.trunc(Math.random() * 6) + 1);
-  //   // setDice(Math.floor(Math.random() * 6) + 1);
-  //   // console.log(`random Dice ${dice}`);
-  //   // //--------------------
-  //   // if (dice !== 1) {
-  //   //   // setCurrentScore((prevScore) => prevScore + dice);
-  //   //   setCurrentScore((currentScore += dice));
-  //   //   console.log(`Current Score ${currentScore}`);
-  //   // } else {
-  //   //   setCurrentScore(0);
-  //   //   console.log(`current score: ${currentScore}`);
-  //   //   switchPlayer();
-  //   // }
-  //   return <h2> Roll dice function</h2>;
-  // };
+  const rollDice = () => {
+    // setIsPlaying(true);
+    //----------------------------------------------------------------
+    console.log(player[activePlayer]);
+    //if activePlayer(0)=> 1, if activePlayer(1)=>2
+    //------------------------
+    // setDice(Math.trunc(Math.random() * 6) + 1);
+    setDice(Math.floor(Math.random() * 6) + 1);
+    console.log(`random Dice ${dice}`);
+    //--------------------
+    if (dice !== 1) {
+      // setCurrentScore((prevScore) => prevScore + dice);
+      setCurrentScore((currentScore += dice));
+      console.log(`Current Score ${currentScore}`);
+    } else {
+      setCurrentScore(0);
+      console.log(`current score: ${currentScore}`);
+      // switchPlayer();
+    }
+    // return <h2> Roll dice function</h2>;
+  };
   // rollDice();
 
   //-----------------
@@ -61,7 +64,9 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         player,
-        // rollDice,
+        rollDice,
+        currentScore,
+        dice,
         // switchPlayer
       }}
     >
