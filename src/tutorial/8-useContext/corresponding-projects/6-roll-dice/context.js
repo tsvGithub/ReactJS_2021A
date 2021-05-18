@@ -6,8 +6,8 @@ const AppProvider = ({ children }) => {
   //state:
   const [dice, setDice] = useState(null);
   //--------------
-  const [player, setPlayer] = useState(1);
-  // const [player, setPlayer] = useState([1, 2]);
+  // const [player, setPlayer] = useState(1);
+  const [players, setPlayers] = useState([1, 2]);
   //------------------
   let [activePlayer, setActivePlayer] = useState(0);
   // let [activePlayer, setActivePlayer] = useState(null);
@@ -24,8 +24,8 @@ const AppProvider = ({ children }) => {
     setIsPlaying(true);
     console.log(`In Context playing is ${isPlaying}`); // true
     //-------------
-    setPlayer(player);
-    console.log(`In Context Player is ${player}`);
+    setPlayers(players);
+    console.log(`In Context Players are ${players}`);
     // setPlayer(player[0]);
     // console.log(`Player is ${setPlayer(player[0])}`); //
     // console.log(`Player is ${player[0]}`); //
@@ -98,7 +98,7 @@ const AppProvider = ({ children }) => {
     // setIsPlaying(true);
     if (isPlaying) {
       //----------------------------------------------------------------
-      console.log(`Active Player now is ${player}`);
+      console.log(`Active Player now is ${players}`);
       // console.log(`Active Player now is ${player[activePlayer]}`);
       //===============
       //if activePlayer(0)=> 1, if activePlayer(1)=>2
@@ -140,7 +140,7 @@ const AppProvider = ({ children }) => {
       value={{
         //state
         dice,
-        player,
+        players,
         activePlayer,
         currentScore,
         totalScore,
