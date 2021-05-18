@@ -131,6 +131,8 @@ const AppProvider = ({ children }) => {
     // setTotalScore[activePlayer]((totalScore += currentScore));
     setTotalScore((totalScore += currentScore));
     console.log(`In context 'totalScore' is ${totalScore}`);
+
+    setCurrentScore(0);
     // setIsPlaying(false);
   };
   // hold();
