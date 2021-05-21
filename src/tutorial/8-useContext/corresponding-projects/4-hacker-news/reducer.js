@@ -45,7 +45,7 @@ const reducer = (state, action) => {
       return {
         //spread out state
         ...state,
-        //query is an action pay;load
+        //query is an action payload
         query: action.payload,
         //for new search
         page: 0,
