@@ -12,11 +12,11 @@ const Game = () => {
   // console.log(`In Game "players[0]" is ${players[0]}`); //1
   // console.log(`In Game "players[1]" is ${players[1]}`); //2
   return (
-    <div>
+    <main>
       <Dashboard player={players[0]} />
       <Controllers />
       <Dashboard player={players[1]} />
-    </div>
+    </main>
   );
 };
 

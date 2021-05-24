@@ -9,7 +9,7 @@ const AppProvider = ({ children }, props) => {
   // const [player, setPlayer] = useState(1);
   const [players, setPlayers] = useState([1, 2]);
   //------------------
-  let [activePlayer, setActivePlayer] = useState(1);
+  let [activePlayer, setActivePlayer] = useState(0);
   // let [activePlayer, setActivePlayer] = useState(0);
   // let [activePlayer, setActivePlayer] = useState(null);
   // const [winner, setWinner] = useState(false);
@@ -42,7 +42,7 @@ const AppProvider = ({ children }, props) => {
     setDice(null); //null
     console.log(`NewGame In Context "dice" is ${dice}`); //null
     //---------------
-    setActivePlayer(1); //0
+    setActivePlayer(0); //0
     console.log(`NewGame In Context ActivePlayer is ${activePlayer}`); //
     //--------
     setCurrentScore({ 1: 0, 2: 0 }); //0
@@ -99,6 +99,7 @@ const AppProvider = ({ children }, props) => {
     if (totalScoreOb[activePlayer] >= 21) {
       console.log(`totalScore of activePlayer is ${totalScoreOb[activePlayer]}`);
       console.log(`Congrats! The winner is ${activePlayer}`);
+      setCurrentScore({ 1: 0, 2: 0 });
       setIsPlaying(false);
     } else {
       switchPlayer();
