@@ -42,21 +42,23 @@ const Dashboard = (props) => {
           {/* {first.totalScore[1]} */}
           {/* {totalScore[player - 1]} */}
           {console.log(totalScoreOb)}
-          {/* [13, 0] */}
+          {/* {1:0, 2:0} */}
           {/* {console.log(totalScore[0])} */}
           {/* undefined */}
           {/* {console.log(totalScoreOb[player - 1])} */}
           {console.log(totalScoreOb[player])}
-          {/* undefined */}
+          {/* 0 */}
 
           {console.log(totalScoreOb[players[0]])}
-          {/* undefined */}
+          {/* 0 */}
         </p>
         <div className="current">
           <p className="current-label">Current</p>
           <p className="current-score" id="current--0">
-            {/* {currentScore[player]} */}
-            {currentScore}
+            {currentScore[player]}
+            {console.log(currentScore)}
+            {console.log(currentScore[player])}
+            {console.log(currentScore[players[0]])}
           </p>
         </div>
       </section>

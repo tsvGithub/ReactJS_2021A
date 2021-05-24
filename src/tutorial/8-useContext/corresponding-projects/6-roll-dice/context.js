@@ -14,8 +14,11 @@ const AppProvider = ({ children }, props) => {
   // let [activePlayer, setActivePlayer] = useState(null);
   // const [winner, setWinner] = useState(false);
   //---------------
-  // let [currentScore, setCurrentScore] = useState([0, 0]);
-  let [currentScore, setCurrentScore] = useState(0);
+  let [currentScore, setCurrentScore] = useState({
+    1: 0,
+    2: 0,
+  });
+  // let [currentScore, setCurrentScore] = useState(0);
   // let [totalScore, setTotalScore] = useState(0);
   let [totalScoreOb, setTotalScoreOb] = useState({
     1: 0,
@@ -48,7 +51,8 @@ const AppProvider = ({ children }, props) => {
     console.log(`NewGame In Context ActivePlayer is ${activePlayer}`); //
     //--------
     // setCurrentScore([]); //0
-    setCurrentScore(0); //0
+    // setCurrentScore(0); //0
+    setCurrentScore({ 1: 0, 2: 0 }); //0
     console.log(`NewGame In Context current score is ${currentScore}`); //
     setTotalScoreOb({ 1: 0, 2: 0 }); //0
     console.log(`NewGame In Context total score is ${totalScoreOb}`); //-
@@ -90,7 +94,7 @@ const AppProvider = ({ children }, props) => {
   //2 Next Player -
   const switchPlayer = () => {
     // setCurrentScore([]);
-    setCurrentScore(0);
+    setCurrentScore({ 1: 0, 2: 0 });
 
     // setActivePlayer((prevState) => (prevState === 0 ? 1 : 0));
     setActivePlayer(activePlayer === 1 ? 2 : 1);
@@ -119,11 +123,18 @@ const AppProvider = ({ children }, props) => {
 
         // setCurrentScore((score) => (console.log(score), [...score, (currentScore[activePlayer] += dice)]));
         // setCurrentScore((currentScore[activePlayer] += dice));
-        setCurrentScore((currentScore += dice));
-        console.log(`RollDice in context: Current Score (not '1'): ${currentScore}`);
+        //-----------------
+        // setCurrentScore((currentScore += dice));
+        // console.log(`RollDice in context: Current Score (not '1'): ${currentScore}`);
+
+        let itogo = (currentScore[activePlayer] += dice);
+        // let itogo = (currentScore += dice);
+        console.log(`HoldDice 'Itogo': ${itogo}`);
+        setCurrentScore(activePlayer === 1 ? { 1: itogo, 2: 0 } : { 1: 0, 2: itogo });
+        // setCurrentScore(activePlayer === 1 ? { ...currentScore, 1: itogo } : { ...currentScore, 2: itogo });
       } else {
         console.log(`Rolled 1`);
-        setCurrentScore(0);
+        setCurrentScore({ 1: 0, 2: 0 });
         console.log(`RollDice in context: Current Score (is '1'): ${currentScore}`);
         switchPlayer();
       }
@@ -141,7 +152,7 @@ const AppProvider = ({ children }, props) => {
     console.log(`HoldDice CurrentScore is ${currentScore}`); //estj
     console.log(`HoldDice TotalScore of ActivePlayer is ${totalScoreOb[activePlayer]}`); //0//undefined
 
-    let itogo = totalScoreOb[activePlayer] + currentScore;
+    let itogo = totalScoreOb[activePlayer] + currentScore[activePlayer];
     console.log(`HoldDice 'Itogo': ${itogo}`);
     setTotalScoreOb(activePlayer === 1 ? { ...totalScoreOb, 1: itogo } : { ...totalScoreOb, 2: itogo });
     // setTotalScoreOb({ ...totalScoreOb, 2: itogo });
