@@ -1,5 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
+*,
+*:focus,
+*:active,
+*:hover,
+*:visited,
+*:focus-visible,
+*:focus-within,
+*:focus:not(:focus-visible),
+*::before,
+*::after {
+  /* box-shadow: none;
+  outline: 0;
+  outline: 0 !important;
+  border: 0; 
+ box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+  outline: 0.1vw transparent;
+  border: 0.1vw solid transparent; */
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -168,4 +190,8 @@ main {
 
 .hidden {
   display: none;
+}
+
+.input {
+  height: 3rem;
 }

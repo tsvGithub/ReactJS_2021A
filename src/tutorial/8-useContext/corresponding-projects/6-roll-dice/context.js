@@ -8,29 +8,56 @@ const AppProvider = ({ children }, props) => {
   //--------------
   // const [player, setPlayer] = useState(1);
   const [players, setPlayers] = useState([1, 2]);
+  // let [names, setNames] = useState(["", ""]);
+  // const [names, setNames] = useState({ 1: "", 2: "" });
+  const [names, setNames] = useState("");
   //------------------
   let [activePlayer, setActivePlayer] = useState(0);
   // let [activePlayer, setActivePlayer] = useState(0);
   // let [activePlayer, setActivePlayer] = useState(null);
-  // const [winner, setWinner] = useState(false);
+  const [winner, setWinner] = useState("");
   //---------------
   let [currentScore, setCurrentScore] = useState({
     1: 0,
     2: 0,
   });
-  // let [currentScore, setCurrentScore] = useState(0);
-  // let [totalScore, setTotalScore] = useState(0);
   let [totalScoreOb, setTotalScoreOb] = useState({
     1: 0,
     2: 0,
   });
-  // let [totalScore, setTotalScore] = useState([0, 0]);
-  // let [pirmais, otrais] = totalScore;
-  // console.log({ pirmais }, { otrais });
-  //{pirmais: 0} {otrais: 0}
-  // const [isPlaying, setIsPlaying] = useState(totalScoreOb[activePlayer] <= 10 ? true : false);
   const [isPlaying, setIsPlaying] = useState(true);
   //----------------
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setNames({ [name]: value });
+  //   // let playerName = { [name]: value };
+
+  //   // setFirstName(playerName);
+  //   // setFirstName({ [name]: value });
+  //   // setFirstName(players === 0 ? { 1: e.target.value, 2: "" } : { 1: "", 2: e.target.value });
+  //   // console.log(firstName);
+  //   // setFirstName(players === 1 ? { 1: playerName, 2: "" } : { 1: "", 2: playerName });
+  //   // console.log(firstName);
+  // };
+  //-----------------
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // setFirstName(players === 0 ? { 1: e.target.value, 2: "" } : { 1: "", 2: e.target.value });
+  //   let name = e.target.value;
+  //   console.log(name);
+  //   setNames(names["1"] === "" ? { 1: name, 2: names["2"] } : { 1: names["1"], 2: name });
+  //   // if (names["1"] === "") {
+  //   //   console.log(names[1]);
+  //   //   setNames([...names, { 1: name }]);
+  //   // } else {
+  //   //   setNames([...names, (names[1] = name)]);
+  //   //   console.log(names[1]);
+  //   // }
+
+  //   console.log(names[1]);
+  //   console.log(names[2]);
+  // };
+  // //----------------
   //(1) new Game:
   const newGame = () => {
     setIsPlaying(true); // true
@@ -50,39 +77,9 @@ const AppProvider = ({ children }, props) => {
     setTotalScoreOb({ 1: 0, 2: 0 }); //0
     console.log(`NewGame In Context total score is ${totalScoreOb}`); //-
     //---------
-    // setWinner(false);
-    // console.log(`winner is ${winner}`);
+    setWinner("");
+    console.log(`winner is ${winner}`);
   };
-  // //==============================
-  // useEffect(() => {
-  //   console.log("New game started");
-  //   setPlayer(player[0]);
-  //   console.log(`Player is ${setPlayer(player[0])}`); //
-  //   // console.log(`Player is ${player[0]}`); //
-  //   // console.log(`Player is ${player}`); //
-
-  //   // setPlayer(0);
-  //   // console.log(`Player is ${player}`); //1,2
-  //   // console.log(`Player is ${player(0)}`); //1,2
-  //   //----------------
-  //   setDice(null);
-  //   console.log(`dice is ${dice}`); //null
-  //   //---------------
-  //   setActivePlayer(player[0]);
-  //   console.log(`ActivePlayer is ${activePlayer}`); //
-  //   setActivePlayer(0);
-  //   console.log(`ActivePlayer is ${activePlayer}`); //0
-  //   //--------
-  //   setCurrentScore(0);
-  //   console.log(`current score is ${currentScore}`); //
-  //   setTotalScore([0, 0]);
-  //   console.log(`total score is ${totalScore}`); //0,0
-  // }, [newGame]);
-
-  // useEffect(() => {
-  //   setColor(randomcolor());
-  // }, [count]);
-  //===============================
 
   //2 Next Player -
   const switchPlayer = () => {
@@ -99,6 +96,7 @@ const AppProvider = ({ children }, props) => {
     if (totalScoreOb[activePlayer] >= 21) {
       console.log(`totalScore of activePlayer is ${totalScoreOb[activePlayer]}`);
       console.log(`Congrats! The winner is ${activePlayer}`);
+      setWinner(activePlayer);
       setCurrentScore({ 1: 0, 2: 0 });
       setIsPlaying(false);
     } else {
@@ -157,24 +155,9 @@ const AppProvider = ({ children }, props) => {
     console.log(`HoldDice 'Itogo': ${itogo}`);
     setTotalScoreOb(activePlayer === 1 ? { ...totalScoreOb, 1: itogo } : { ...totalScoreOb, 2: itogo });
     console.log(`HoldDice 'totalScore' is ${totalScoreOb}`);
-
-    // checkWinner();
-    // if (totalScoreOb[activePlayer] >= 21) {
-    //   console.log(`Congrats! The winner is ${activePlayer}`);
-    //   setIsPlaying(false);
-    // } else {
-    //   switchPlayer();
-    // }
   };
   useEffect(() => {
     checkWinner();
-    // if (totalScoreOb[activePlayer] >= 21) {
-    //   console.log(`totalScore of activePlayer is ${totalScoreOb[activePlayer]}`);
-    //   console.log(`Congrats! The winner is ${activePlayer}`);
-    //   setIsPlaying(false);
-    // } else {
-    //   switchPlayer();
-    // }
   }, [totalScoreOb]);
 
   //===============
@@ -188,13 +171,19 @@ const AppProvider = ({ children }, props) => {
         currentScore,
         totalScoreOb,
         isPlaying,
-        // winner,
+        winner,
         //-------
         //functions + onClicks
         newGame,
         rollDice,
         // switchPlayer,
         holdDice,
+        // handleChange,
+        // firstName,
+        // setFirstName,
+        // handleSubmit,
+        names,
+        setNames,
       }}
     >
       {children}
