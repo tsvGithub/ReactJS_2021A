@@ -1,3 +1,4 @@
+import { set } from "mongoose";
 import React, { useState, useContext, useEffect } from "react";
 
 const AppContext = React.createContext();
@@ -11,6 +12,8 @@ const AppProvider = ({ children }, props) => {
   // let [names, setNames] = useState(["", ""]);
   // const [names, setNames] = useState({ 1: "", 2: "" });
   const [names, setNames] = useState("");
+  const [nicknames, setNicknames] = useState({ nickname: "" });
+  // const [nickname, setNickname] = useState({ 1: "", 2: "" });
   //------------------
   let [activePlayer, setActivePlayer] = useState(0);
   // let [activePlayer, setActivePlayer] = useState(0);
@@ -39,7 +42,54 @@ const AppProvider = ({ children }, props) => {
   //   // setFirstName(players === 1 ? { 1: playerName, 2: "" } : { 1: "", 2: playerName });
   //   // console.log(firstName);
   // };
+  const handleChange = (e) => {
+    // const { value } = e.target.value;
+    // const { [names]: value } = e.target;
+    // setNames(value);
+    // setNames(e.target.value);
+    // setNames({ names: value });
+    const name = e.target.name;
+    const value = e.target.value;
+    setNicknames({ ...nicknames, [name]: value });
+  };
   //-----------------
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { nickname } = nicknames;
+    if (nickname) {
+      console.log(nickname);
+      console.log(nicknames);
+      setNames("");
+    }
+
+    // //---------------
+    // if (names) {
+    //   console.log(names);
+    //   // console.log(nickname[1]);
+    //   // console.log(nickname[2]);
+
+    //   // setNickname(nickname["1"] ? nickname["2"](names) : nickname["1"](names));
+    //   // setNickname(nickname["1"] ? nickname({ 2: names }) : nickname({ 1: names }));
+
+    //   // const firstNN = nickname[2] ? setNickname({ 1: names }) : nickname[2];
+    //   // console.log(firstNN); //{1: "Zhur"}
+
+    //   // if (!nickname[1]) {
+    //   //   setNickname((nickname[1] = names));
+    //   //   setNames("");
+    //   // } else {
+    //   //   setNickname((nickname[2] = names));
+    //   //   setNames("");
+    //   // }
+
+    //   setNickname({ ...nickname, names });
+    //   // console.log(nickname[1]);
+    //   // console.log(nickname[2]);
+
+    //   setNames("");
+    // }
+    // console.log(nickname);
+  };
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   // setFirstName(players === 0 ? { 1: e.target.value, 2: "" } : { 1: "", 2: e.target.value });
@@ -178,10 +228,11 @@ const AppProvider = ({ children }, props) => {
         rollDice,
         // switchPlayer,
         holdDice,
-        // handleChange,
+        handleChange,
         // firstName,
         // setFirstName,
-        // handleSubmit,
+        handleSubmit,
+        nicknames,
         names,
         setNames,
       }}

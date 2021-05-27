@@ -155,7 +155,7 @@ const AppProvider = ({ children }) => {
   // useEffect(() => {
   //   fetchQuestions(tempUrl);
   // }, []);
-  //--------------------------------
+  //--------------------------------_
   //8) instead of using useEffect, use these functions:
   const handleChange = (e) => {
     //input values:

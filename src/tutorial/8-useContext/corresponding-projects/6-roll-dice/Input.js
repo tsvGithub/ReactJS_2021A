@@ -3,7 +3,7 @@ import React from "react";
 import { useGlobalContext } from "./context";
 
 const Input = (props) => {
-  const { players, handleChange, handleSubmit, names, setNames } = useGlobalContext();
+  const { players, handleChange, handleSubmit, nicknames } = useGlobalContext();
   // console.log(`In 'Dashboard' players from state are ${players}`); //1,2
   //------------------
   const { player } = props; //1,2
@@ -20,31 +20,31 @@ const Input = (props) => {
         //   onSubmit={handleSubmit}
       >
         <div className="form-control">
-          <label htmlFor="names">Name:</label>
+          <label htmlFor="nickname">Name:</label>
           <input
             className="input"
             type="text"
-            name="names"
+            name="nickname"
             // name={names[`${player}`]}
-            value={names}
+            value={nicknames.nickname}
             // value={firstName[activePlayer]}
             // value={firstName[player]}
             placeholder="Your Name"
-            onChange={(e) => setNames(e.target.value)}
-            // onChange={handleChange}
+            // onChange={(e) => setNames(e.target.value)}
+            onChange={handleChange}
           />
         </div>
-        {/* <button
+        <button
           type="submit"
           //onSubmit===onClick
-          // onClick={handleSubmit}
+          onClick={handleSubmit}
         >
-          Add your name
-        </button> */}
+          Submit your name
+        </button>
       </form>
       {/* <h2>{names[player]}</h2>
       <h2>{names[`${player}`]}</h2> */}
-      <h2>{names}</h2>
+      <h2>{nicknames.nickname}</h2>
     </section>
   );
 };
