@@ -24,7 +24,7 @@ const Dashboard = (props) => {
   // console.log(players[activePlayer]); //2
   // console.log(activePlayer); //1
   // console.log(firstName[player]);
-  console.log(names);
+  // console.log(names);
   return (
     <section
       className={

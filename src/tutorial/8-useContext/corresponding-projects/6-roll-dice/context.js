@@ -12,7 +12,8 @@ const AppProvider = ({ children }, props) => {
   // let [names, setNames] = useState(["", ""]);
   // const [names, setNames] = useState({ 1: "", 2: "" });
   const [names, setNames] = useState("");
-  const [nicknames, setNicknames] = useState({ nickname: "" });
+  // const [nicknames, setNicknames] = useState({ nickname: "" });
+  const [nicknames, setNicknames] = useState([]);
   // const [nickname, setNickname] = useState({ 1: "", 2: "" });
   //------------------
   let [activePlayer, setActivePlayer] = useState(0);
@@ -43,24 +44,35 @@ const AppProvider = ({ children }, props) => {
   //   // console.log(firstName);
   // };
   const handleChange = (e) => {
+    // setNames("");
+
     // const { value } = e.target.value;
-    // const { [names]: value } = e.target;
+    const { [name]: value } = e.target;
     // setNames(value);
     // setNames(e.target.value);
     // setNames({ names: value });
-    const name = e.target.name;
-    const value = e.target.value;
-    setNicknames({ ...nicknames, [name]: value });
+    // const name = e.target.name;
+    // const value = e.target.value;
+    setNames({ [name]: value });
+    // setNicknames({ [name]: value });
+    // setNicknames(...nicknames, { [name]: value });
+    console.log(names);
   };
   //-----------------
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { nickname } = nicknames;
-    if (nickname) {
-      console.log(nickname);
-      console.log(nicknames);
-      setNames("");
-    }
+    console.log(names); //{nickname: "Zhur"}
+
+    // const { nickname } = nicknames;
+    // if (nickname) {
+    //   console.log(nickname);
+    //   console.log(nicknames);
+    // }
+    // const { names } = names;
+    // setNicknames([names]);
+    // setNicknames({ nickname: names });
+
+    // setNames("");
 
     // //---------------
     // if (names) {
