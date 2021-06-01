@@ -47,22 +47,25 @@ const AppProvider = ({ children }, props) => {
     // setNames("");
 
     // const { value } = e.target.value;
-    const { [name]: value } = e.target;
+    // const { [name]: value } = e.target;
     // setNames(value);
     // setNames(e.target.value);
     // setNames({ names: value });
     // const name = e.target.name;
-    // const value = e.target.value;
-    setNames({ [name]: value });
+    const value = e.target.value;
+    // setNames({ [name]: value });
+    // setNames({ names: value });
+    setNames(value);
     // setNicknames({ [name]: value });
     // setNicknames(...nicknames, { [name]: value });
-    console.log(names);
+    // console.log(names);
   };
   //-----------------
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(names); //{nickname: "Zhur"}
-
+    setNicknames([...nicknames, names]);
+    // console.log(nicknames[0]);
     // const { nickname } = nicknames;
     // if (nickname) {
     //   console.log(nickname);
@@ -72,7 +75,7 @@ const AppProvider = ({ children }, props) => {
     // setNicknames([names]);
     // setNicknames({ nickname: names });
 
-    // setNames("");
+    setNames("");
 
     // //---------------
     // if (names) {

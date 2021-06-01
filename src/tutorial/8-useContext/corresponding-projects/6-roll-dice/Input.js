@@ -12,15 +12,13 @@ const Input = (props) => {
   // console.log(players[activePlayer]); //2
   // console.log(activePlayer); //1
   // console.log(firstName[player]);
+  console.log(nicknames);
 
   return (
     <section>
-      <form
-        className="form"
-        //   onSubmit={handleSubmit}
-      >
+      <form className="form" onSubmit={handleSubmit}>
         <div className="form-control">
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="names">Name:</label>
           <input
             className="input"
             type="text"
@@ -37,14 +35,17 @@ const Input = (props) => {
         <button
           type="submit"
           //onSubmit===onClick
-          onClick={handleSubmit}
+          //   onClick={handleSubmit}
         >
           Submit your name
         </button>
       </form>
       {/* <h2>{names[player]}</h2>
       <h2>{names[`${player}`]}</h2> */}
-      {/* <h2>{names}</h2> */}
+      <h2>{names}</h2>
+      <h2>{nicknames[0]}</h2>
+      <h2>{nicknames[1]}</h2>
+      <h2>{nicknames[2]}</h2>
     </section>
   );
 };
