@@ -13,7 +13,7 @@ const Game = () => {
   // console.log(`In Game "players[0]" is ${players[0]}`); //1
   // console.log(`In Game "players[1]" is ${players[1]}`); //2
   return (
-    <div>
+    <div className="wrapper">
       <Input />
 
       <main>

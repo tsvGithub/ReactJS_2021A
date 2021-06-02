@@ -9,6 +9,7 @@ const Dashboard = (props) => {
     handleSubmit,
     names,
     setNames,
+    nicknames,
     // firstName,
     // setFirstName,
     currentScore,
@@ -59,7 +60,18 @@ const Dashboard = (props) => {
         </button>
       </form>
  */}
-      <h2 className="name">{winner === player ? `Congrats, you won!` : `Player ${player}`}</h2>
+      <h2 className="name">
+        {winner === player
+          ? `Congrats, ${nicknames[player - 1]}, you won!`
+          : nicknames[0] && nicknames[1]
+          ? nicknames[player - 1]
+          : `Player ${player}`}
+      </h2>
+      {/* <h2>{nicknames[0]}</h2>
+      <h2>{nicknames[1]}</h2> */}
+      {/* <h2>{nicknames[player - 1]}</h2> */}
+      {/* <h2>{nicknames[players]}</h2> */}
+
       <p className="score">{totalScoreOb[player]}</p>
       <div className="current">
         <p className="current-label">Current</p>

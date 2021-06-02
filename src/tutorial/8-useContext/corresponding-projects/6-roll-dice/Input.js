@@ -27,7 +27,7 @@ const Input = (props) => {
             value={names}
             // value={firstName[activePlayer]}
             // value={firstName[player]}
-            placeholder="Your Name"
+            placeholder="Enter Your Name"
             // onChange={(e) => setNames(e.target.value)}
             onChange={handleChange}
           />
@@ -36,16 +36,17 @@ const Input = (props) => {
           type="submit"
           //onSubmit===onClick
           //   onClick={handleSubmit}
+          className="btn-submit"
         >
-          Submit your name
+          Submit
         </button>
       </form>
       {/* <h2>{names[player]}</h2>
       <h2>{names[`${player}`]}</h2> */}
-      <h2>{names}</h2>
+      {/* <h2>{names}</h2>
       <h2>{nicknames[0]}</h2>
       <h2>{nicknames[1]}</h2>
-      <h2>{nicknames[2]}</h2>
+      <h2>{nicknames[2]}</h2> */}
     </section>
   );
 };

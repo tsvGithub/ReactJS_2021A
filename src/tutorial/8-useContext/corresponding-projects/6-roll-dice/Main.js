@@ -8,7 +8,7 @@ import "./styles.css";
 
 const Main = () => {
   return (
-    <AppProvider>
+    <AppProvider className="wrapper">
       <Game />
     </AppProvider>
   );
