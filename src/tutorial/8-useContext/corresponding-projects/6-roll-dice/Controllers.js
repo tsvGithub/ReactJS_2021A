@@ -1,17 +1,27 @@
 import React from "react";
 //Context
 import { useGlobalContext } from "./context";
-
+//default img
 // import dice_5 from "./img/dice-5.png";
 
+//V (IV.Dasboard.js + VI.Input.js)
+//Controllers component is for displaying the dice
+//and the control buttons.
 const Controllers = () => {
   const { rollDice, dice, newGame, holdDice } = useGlobalContext();
-  // console.log(dice); //ok
   return (
     <section>
       {/* <img src={dice_5} alt="" /> */}
+      {/*dynamically rendered images */}
       <img
-        src={dice === null ? require(`./img/dice-5.png`).default : require(`./img/dice-${dice}.png`).default}
+        //if newGame is true
+        src={
+          dice === null
+            ? //set default image
+              require(`./img/dice-5.png`).default
+            : //or render dynamically changed in context.js 'dice'
+              require(`./img/dice-${dice}.png`).default
+        }
         alt="dice"
         className="dice"
       />

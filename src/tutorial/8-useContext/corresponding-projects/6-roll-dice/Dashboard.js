@@ -2,76 +2,47 @@ import React from "react";
 //Context
 import { useGlobalContext } from "./context";
 
+//IV (III.Game.js + V.Controllers.js)
+//Dashboard component is for render players dynamically.
 const Dashboard = (props) => {
-  const {
-    players,
-    handleChange,
-    handleSubmit,
-    names,
-    setNames,
-    nicknames,
-    // firstName,
-    // setFirstName,
-    currentScore,
-    totalScoreOb,
-    activePlayer,
-    winner,
-  } = useGlobalContext();
-  // console.log(`In 'Dashboard' players from state are ${players}`); //1,2
+  const { nicknames, currentScore, totalScoreOb, activePlayer, winner } = useGlobalContext();
   //------------------
+  //'player' is props from Game.js
   const { player } = props; //1,2
-  // console.log(`In Dasshboard "Props" 'player' is ${player}`); // 1 + (next)2
-  // console.log(totalScore[player - 1]);
-  // console.log(players[activePlayer]); //2
-  // console.log(activePlayer); //1
-  // console.log(firstName[player]);
-  // console.log(names);
   return (
     <section
+      //set a dynamic css-class
       className={
-        winner === player ? "player player--winner" : activePlayer === player ? "player player--active" : "player"
+        //check if is winner
+        winner === player
+          ? "player player--winner"
+          : //if not winner => check active player or player
+          activePlayer === player
+          ? "player player--active"
+          : "player"
       }
-      // className={
-      //   (activePlayer === player ? "player player--active" : "player",
-      //   winner === player ? "player player--winner" : "player")
-      // }
     >
-      {/* <form className="form" onSubmit={handleSubmit}>
-        <div className="form-control">
-          <label htmlFor="firstName">Name:</label>
-          <input
-            className="input"
-            type="text"
-            name="names"
-            value={names}
-            // value={firstName[activePlayer]}
-            // value={firstName[player]}
-            placeholder="Your Name"
-            onChange={(e) => setNames(e.target.value)}
-            // onChange={handleChange}
-          />
-        </div>
-        <button
-          type="submit"
-          //onSubmit===onClick
-          // onClick={handleSubmit}
-        >
-          Add your name
-        </button>
-      </form>
- */}
+      {/*Dynamically rendered Name: */}
       <h2 className="name">
-        {winner === player
-          ? `Congrats, ${nicknames[player - 1]}, you won!`
-          : nicknames[0] && nicknames[1]
-          ? nicknames[player - 1]
-          : `Player ${player}`}
+        {
+          //check if is winner
+          winner === player
+            ? //check if player entered name in form
+              `Congrats! ${
+                nicknames[player - 1]
+                  ? //render player name or "You" instead
+                    nicknames[player - 1]
+                  : "You"
+              } won!`
+            : //OR
+            //check if both players entered names
+            nicknames[0] && nicknames[1]
+            ? //use names
+              nicknames[player - 1]
+            : //or player number
+              `Player ${player}`
+        }
       </h2>
-      {/* <h2>{nicknames[0]}</h2>
-      <h2>{nicknames[1]}</h2> */}
-      {/* <h2>{nicknames[player - 1]}</h2> */}
-      {/* <h2>{nicknames[players]}</h2> */}
-
       <p className="score">{totalScoreOb[player]}</p>
       <div className="current">
         <p className="current-label">Current</p>

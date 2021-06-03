@@ -13,10 +13,15 @@ const Input = (props) => {
   // console.log(activePlayer); //1
   // console.log(firstName[player]);
   console.log(nicknames);
-
+  console.log(nicknames.length);
   return (
-    <section>
-      <form className="form" onSubmit={handleSubmit}>
+    // <section className="form">test</section>
+    <section className={nicknames.length === 2 ? "hidden" : ""}>
+      <form
+        className="form"
+        // className={nicknames.length === 2 ? "hidden" : "form"}
+        onSubmit={handleSubmit}
+      >
         <div className="form-control">
           <label htmlFor="names">Name:</label>
           <input

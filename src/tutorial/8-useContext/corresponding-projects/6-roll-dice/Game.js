@@ -6,12 +6,11 @@ import Input from "./Input";
 //Context
 import { useGlobalContext } from "./context";
 
+//III. (II.context.js + IV. Dashboard.js)
+//Is wrapper component => Dashboard component is used
+//for players and Controller component is for buttons and dice
 const Game = () => {
-  const { players, currentScore, activePlayer } = useGlobalContext();
-  // console.log(`In Game "players.length" are ${players.length}`); //2
-  // console.log(`In Game "players" are ${players}`); // 1,2
-  // console.log(`In Game "players[0]" is ${players[0]}`); //1
-  // console.log(`In Game "players[1]" is ${players[1]}`); //2
+  const { players } = useGlobalContext();
   return (
     <div className="wrapper">
       <Input />

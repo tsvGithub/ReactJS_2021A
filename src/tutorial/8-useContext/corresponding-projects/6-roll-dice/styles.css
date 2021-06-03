@@ -200,8 +200,13 @@ main {
 }
 
 .hidden {
-  display: none;
+  /* display: none; */
+  visibility: hidden;
 }
+/* form.hidden {
+  /* display: none; */
+/* visibility: hidden;
+} */
 
 .form {
   text-transform: uppercase;
