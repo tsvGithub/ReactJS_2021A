@@ -7,8 +7,9 @@ import Input from "./Input";
 import { useGlobalContext } from "./context";
 
 //III. (II.context.js + IV. Dashboard.js)
-//Is wrapper component => Dashboard component is used
-//for players and Controller component is for buttons and dice
+//Game is wrapper component =>
+//Dashboard component is used to display
+//players and Controller component is for buttons and dice
 const Game = () => {
   const { players } = useGlobalContext();
   return (

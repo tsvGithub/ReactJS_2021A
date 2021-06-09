@@ -2,24 +2,17 @@ import React from "react";
 //Context
 import { useGlobalContext } from "./context";
 
-const Input = (props) => {
-  const { players, handleChange, handleSubmit, nicknames, names } = useGlobalContext();
-  // console.log(`In 'Dashboard' players from state are ${players}`); //1,2
-  //------------------
-  const { player } = props; //1,2
-  // console.log(`In Dasshboard "Props" 'player' is ${player}`); // 1 + (next)2
-  // console.log(totalScore[player - 1]);
-  // console.log(players[activePlayer]); //2
-  // console.log(activePlayer); //1
-  // console.log(firstName[player]);
-  console.log(nicknames);
-  console.log(nicknames.length);
+//VI (V.Controllers.js)
+//Input component allows players to display
+// their names on the dashboard.
+const Input = () => {
+  const { handleChange, handleSubmit, nicknames, names } = useGlobalContext();
   return (
-    // <section className="form">test</section>
+    // hide Input if both names are specified
     <section className={nicknames.length === 2 ? "hidden" : ""}>
       <form
         className="form"
-        // className={nicknames.length === 2 ? "hidden" : "form"}
+        //handleSubmit (context.js)
         onSubmit={handleSubmit}
       >
         <div className="form-control">
@@ -28,12 +21,10 @@ const Input = (props) => {
             className="input"
             type="text"
             name="names"
-            // name={names[`${player}`]}
             value={names}
-            // value={firstName[activePlayer]}
-            // value={firstName[player]}
             placeholder="Enter Your Name"
             // onChange={(e) => setNames(e.target.value)}
+            //onChange (context.js)
             onChange={handleChange}
           />
         </div>
@@ -46,12 +37,6 @@ const Input = (props) => {
           Submit
         </button>
       </form>
-      {/* <h2>{names[player]}</h2>
-      <h2>{names[`${player}`]}</h2> */}
-      {/* <h2>{names}</h2>
-      <h2>{nicknames[0]}</h2>
-      <h2>{nicknames[1]}</h2>
-      <h2>{nicknames[2]}</h2> */}
     </section>
   );
 };
