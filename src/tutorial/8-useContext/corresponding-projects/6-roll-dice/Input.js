@@ -6,7 +6,7 @@ import { useGlobalContext } from "./context";
 //Input component allows players to display
 // their names on the dashboard.
 const Input = () => {
-  const { handleChange, handleSubmit, nicknames } = useGlobalContext();
+  const { handleChange, handleSubmit, nicknames, names } = useGlobalContext();
   return (
     // hide Input if both names are specified
     <section className={nicknames.length === 2 ? "hidden" : ""}>
