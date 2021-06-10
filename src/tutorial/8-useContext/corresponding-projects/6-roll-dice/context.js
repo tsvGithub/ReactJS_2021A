@@ -125,6 +125,10 @@ const AppProvider = ({ children }) => {
         totalScoreOb,
         isPlaying,
         winner,
+        nicknames,
+        names,
+        setNames,
+
         //-------
         //functions + onClicks
         newGame,
@@ -132,9 +136,6 @@ const AppProvider = ({ children }) => {
         holdDice,
         handleChange,
         handleSubmit,
-        nicknames,
-        names,
-        setNames,
       }}
     >
       {children}
